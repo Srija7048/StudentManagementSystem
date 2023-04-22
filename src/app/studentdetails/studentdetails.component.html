@@ -1,0 +1,23 @@
+<div>
+    <table id="studenttable">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>gender</th>
+            <th>class</th>
+            <th>Rank</th>
+        </tr>
+        <tr *ngIf="inputStudent">
+            <td>{{inputStudent.id}}</td>
+            <td>{{inputStudent.name}}</td>
+            <td>{{inputStudent.gender}}</td>
+            <td>{{inputStudent.class}}</td>
+            <td>{{inputStudent.Rank}}</td>
+        </tr>
+    </table>
+    <br>
+    <label for="inp">Enter rank to change :</label>
+    <input id="inp" type="number" [(ngModel)]="inputStudent.Rank"><br>
+    <button (click)="updatestudent(inputStudent)">Update</button>
+
+</div>

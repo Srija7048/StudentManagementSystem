@@ -1,0 +1,35 @@
+<div id="main">
+    <div id="orderId">
+        <button (click)="sortAscending()">ASC</button>
+        <button (click)="sortDescending()">DES</button>
+    </div>
+    <div>
+        <table id="studentlist" style="border:1px solid black">
+            <tr>
+                <th>id</th>
+                <th>Name</th>  
+                <th>age</th>
+                <th>class</th>
+                <th>gender</th>
+                <th>rank</th>
+            </tr>
+            <tr *ngFor="let student of studentlist">
+                <td>{{student.id}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.age}}</td>
+                <td>{{student.class}}</td>
+                <td>{{student.gender}}</td>
+                <td>{{student.rank}}</td>
+                <td><button (click)="viewstudent(student)">View</button></td>
+                <td><button>Update</button></td>
+            </tr>
+
+        </table>
+    </div>
+</div><br><br><br>
+<div class="secondmain" *ngIf="checkview">
+    <div *ngIf="studentSelected.id">
+        <span>Selected student :    </span><br><br>
+        <app-studentdetails [inputStudent]="studentSelected" (newStudent)="updatestudent($event)"></app-studentdetails>
+    </div>
+</div>
